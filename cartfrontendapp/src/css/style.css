@@ -133,6 +133,7 @@ section{
 .item-content-details{
     display:inline-block;
     width:60%;
+    margin-top:30px;
 }
 
 .item-content-details li:first-child{
@@ -152,11 +153,18 @@ section{
 .item-content{
     vertical-align: top;
     height: 162px;
+    width: 70%;
+    display: inline-block;
 }
 
 .item-quant{
     display: inline-block;
     width: 13.3%;
+    
+}
+
+.item-quant span{
+    display: none;
 }
 
 .item-size{
@@ -164,9 +172,18 @@ section{
     width: 13.3%;
 }
 
+.item-size span{
+    display: none;
+}
+
 .item-price{
     display:inline-block;
     width: 13.3%;
+}
+
+.item-operations{
+    width: 70%;
+    float: right;
 }
 /*----item (cart Item) ends here----*/
 
@@ -207,8 +224,24 @@ section{
     font-size:65%;
 }
 
+.promo-text{
+    width:40%;
+    display: inline-block;
+}
+
+.promo-code-box{
+    width:30%;
+    display: inline-block;
+}
+
 .btn-border{
+    width:30%;
+    display: inline-block;
+}
+
+.btn-border input[type=submit]{
     border: 1px solid #a1a1a1;
+    padding: 6px 22px;
 }
 
 .cal-labels{
@@ -292,7 +325,7 @@ section{
     font-weight:500;
 }
 
-.checkout input[type=submit]{
+.checkout input[type="submit"]{
     float:right;
     font-size:75%;
     background-color: #0000ff;
@@ -307,10 +340,15 @@ section{
     float:right;
 }
 
-.footer p{
-    display:inline-block;
+.footer p:first-child{
     font-size: 75%;
     vertical-align: text-top;
     margin-left: 4px;
+    float:right;
+    margin-top: 10px;
+}
+
+.footer p:last-child{
+    display: none;
 }
 /*-------footer ends here------*/

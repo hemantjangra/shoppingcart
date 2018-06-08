@@ -18,13 +18,22 @@ class CartComp extends React.Component {
                 </div>
                 <div className="cart-details">
                     <div className="row coupon">
-                        <div className="col span-3-of-6">
+                        {/* <div className="col span-3-of-6">
                             <label>Enter promotion code <br />or gift card</label>
                         </div>
                         <div className="col span-2-of-6">
                             <input type="text" name="name" id="promo-code" placeholder="" />
                         </div>
                         <div className="col span-1-of-6 btn-border">
+                            <input type="submit" value="Apply" />
+                        </div> */}
+                        <div className="promo-text">
+                            <label>Enter promotion code <br />or gift card</label>
+                        </div>
+                        <div className="promo-code-box">
+                            <input type="text" name="name" id="promo-code" placeholder="" />
+                        </div>
+                        <div className="btn-border">
                             <input type="submit" value="Apply" />
                         </div>
                     </div>
