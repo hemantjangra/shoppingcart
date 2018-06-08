@@ -7,7 +7,7 @@ const CartData = new Schema({
     _id: mongoose.Schema.Types.ObjectId,
     sku_Id: String,
     item_Name: String,
-    item_Descripiton: String,
+    item_Description: String,
     price: Number,
     currency: String,
     total_Quantity: Number,
@@ -16,10 +16,28 @@ const CartData = new Schema({
     discount: Number,
     imageName: String,
     size_Available: {
-        S: Boolean,
-        M: Boolean,
-        L: Boolean,
-        XL: Boolean
+        S: {
+            isAvailable: Boolean,
+            size: String
+        },
+        M: {
+            isAvailable: Boolean,
+            size: String
+        },
+        L: {
+            isAvailable: Boolean,
+            size: String
+        },
+        XL: {
+            isAvailable: Boolean,
+            size: String
+        }
+    },
+    color: String,
+    default_Quantity: Number,
+    currency:{
+        name:String,
+        symbol: String
     }
 }, { collection: config.connectionDetails.collectionName });
 
