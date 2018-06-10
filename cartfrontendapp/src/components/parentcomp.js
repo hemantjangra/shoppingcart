@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import apiDetails from '../../config';
+import cartData from '../data/data';
 import getData from '../utilities/getResult';
 import HeaderComp from '../components/headercomp';
 import ItemHeader from '../components/itemheader';
 import ItemComp from './itemcomp';
 import CartComp from './cartcomp';
 import FooterComp from './footercomp';
+import ModalComp from './modalcomp';
 
 class ParentComp extends React.Component {
     constructor(props) {
@@ -26,6 +28,7 @@ class ParentComp extends React.Component {
                 <ItemComp />
                 <CartComp />
                 <FooterComp />
+                <ModalComp />
             </section>
         );
     }
@@ -57,8 +60,14 @@ const mapDispatchToProps = dispatch => {
             };
             const apiResult = getData(apiDetails.apiUrl);
             apiResult.then(data => {
-                outdata.data = data;
-                outdata.dataUpdated = true;
+                if (data !== null && data.length > 0) {
+                    outdata.data = data;
+                    outdata.dataUpdated = true;
+                }
+                else {
+                    outdata.data = cartData;
+                    outdata.dataUpdated = true;
+                }
                 dispatch({
                     type: "FETCH_CART_DATA",
                     payload: outdata
@@ -67,24 +76,5 @@ const mapDispatchToProps = dispatch => {
         },
     }
 }
-function fetchPostsRequest() {
-    return {
-        type: "FETCH_REQUEST"
-    }
-}
-
-function fetchPostsSuccess(payload) {
-    return {
-        type: "FETCH_SUCCESS",
-        payload
-    }
-}
-
-function fetchPostsError() {
-    return {
-        type: "FETCH_ERROR"
-    }
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ParentComp);
-

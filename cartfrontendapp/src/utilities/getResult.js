@@ -1,3 +1,4 @@
+import cartData from "../data/data";
 
 // const getData = (apiUrl)=>{
 //     return new Promise((resolve, reject)=>{
@@ -15,14 +16,21 @@
 //             return Promise.reject(error);
 //         });
 // }
+
 const getData = (apiUrl) => {
     return fetch(apiUrl)
-        .then((result =>  result.json()))
+        .then(result => { 
+            resStatus = result.status;
+            result.json()})
         .then(data=> {
+            if(resStatus === 500){
+            return Promise.resolve(cartData);
+        }else{
             return Promise.resolve(data);
+        }
         })
         .catch(error => {
-            return Promise.reject(error);
+            return Promise.resolve(cartData);
         });
 }
 

@@ -1,14 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ModalComp from './modalcomp';
 
 class ItemComp extends React.Component {
     constructor(props) {
         super(props);
     };
 
-
+    
 
     render() {
+        const openModal = () =>{
+            document.querySelector('.edit-modal').classList.toggle("hide-modal");
+        };
+
         const createcartItem = () => {
             const compCartData = this.props.allCartData;
             let imgPath = "src/img/";
@@ -41,13 +46,14 @@ class ItemComp extends React.Component {
                             </div>
                             <div className="item-operations">
                                 <ul className="item-content-options">
-                                    <li>EDIT</li>
+                                    <li onClick={openModal}>EDIT</li>
                                     <li><strong>X</strong> Remove</li>
                                     <li>Save for Later</li>
                                 </ul>
                             </div>
 
                         {/*</div>*/}
+                        <ModalComp /> 
                     </div>);
             }
             return cartItem;
