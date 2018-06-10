@@ -47,7 +47,7 @@ class ItemComp extends React.Component {
                             <div className="item-operations">
                                 <ul className="item-content-options">
                                     <li onClick={openModal}>EDIT</li>
-                                    <li><strong>X</strong> Remove</li>
+                                    <li><strong onClick={() =>this.props.removeCartItem(compCartData[i].sku_Id)}>X</strong> Remove</li>
                                     <li>Save for Later</li>
                                 </ul>
                             </div>
@@ -68,12 +68,18 @@ class ItemComp extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        allCartData: state.data
+        allCartData: state
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
+        removeCartItem:(itemToRemove)=>{
+            dispatch({
+                type: "REMOVE_CART_ITEM",
+                payload: itemToRemove
+            });
+        }
 
     }
 }

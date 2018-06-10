@@ -22,7 +22,7 @@ class ItemHeader extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        totalItemCount: state.data.length
+        totalItemCount: state.length
     }
 };
 const mapDispatchToProps = dispatch => {

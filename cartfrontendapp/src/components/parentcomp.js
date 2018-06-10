@@ -54,23 +54,13 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchCartData: () => {
-            let outdata = {
-                data: '',
-                dataUpdated: true
-            };
+            let data = [];
             const apiResult = getData(apiDetails.apiUrl);
-            apiResult.then(data => {
-                if (data !== null && data.length > 0) {
-                    outdata.data = data;
-                    outdata.dataUpdated = true;
-                }
-                else {
-                    outdata.data = cartData;
-                    outdata.dataUpdated = true;
-                }
+            apiResult.then(res => {
+                data = res;
                 dispatch({
                     type: "FETCH_CART_DATA",
-                    payload: outdata
+                    payload: data
                 });
             });
         },
