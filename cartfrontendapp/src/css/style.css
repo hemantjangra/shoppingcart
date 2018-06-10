@@ -257,6 +257,12 @@ section{
     font-weight:500;
 }
 
+.labels li span{
+    display: block;
+    font-size:85%;
+    font-weight:300;
+}
+
 .prices li{
     list-style: none;
     margin: 25px 0;
@@ -308,9 +314,19 @@ section{
     font-weight:500;
 }
 
+.total-label p span{
+    font-size:65%;
+    display: block;
+    font-weight:350;
+    margin-top:5px;
+    text-transform: none;
+}
+
 .total-price{
     width: 10%;
     display: inline-block;
+    font-weight: 500;
+    font-size: 130%;
 }
 
 .checkout{

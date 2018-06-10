@@ -9,8 +9,6 @@ const cartReducer = (state = data, action) => {
     console.log(`Global state is ${state.dataFirstTime}`);
     switch (action.type) {
         case 'FETCH_CART_DATA':
-            //state.data= action.payload.data;
-            //state.dataFirstTime = action.payload.dataUpdated;
             return action.payload;
 
             break;
