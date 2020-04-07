@@ -1,0 +1,4 @@
+/cartfrontendapp/dist
+/.idea
+/cartfrontendapp/node_modules/
+/cartapp/node_modules/
